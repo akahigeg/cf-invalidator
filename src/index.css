@@ -24,8 +24,7 @@ code {
 .container {
   margin-top: 30px;
 }
-.container .welcome,
-.container .thanks {
+.container .site-content {
   text-align: left;
   margin-left: auto;
   margin-right: auto;
@@ -37,18 +36,10 @@ code {
 }
 
 .container form,
-.container form.comments {
+.container form.cf-invalidator {
   text-align: left;
   margin-left: 50px; 
   margin-right: 50px; 
-}
-
-.container .comments .ui.list {
-  margin-top: 40px;
-}
-
-.container .comments .item {
-  margin-top: 15px;
 }
 
 .site-footer {
