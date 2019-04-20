@@ -2,6 +2,7 @@ import * as React from "react";
 import "./App.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import * as AWS from "aws-sdk";
 
 import { Form, Button, Container } from "semantic-ui-react";
 import Cookies from "universal-cookie";
@@ -34,7 +35,26 @@ class App extends React.Component<{}, AppState> {
   };
 
   handleSubmit = (event: any) => {
-    // use aws-sdk
+    const cloudfront = new AWS.CloudFront({
+      apiVersion: "2018-11-05",
+      accessKeyId: this.state.access_key,
+      secretAccessKey: this.state.secret_key
+    });
+
+    const params = {
+      DistributionId: this.state.distribution_id,
+      InvalidationBatch: {
+        CallerReference: String(new Date().getTime()),
+        Paths: { Quantity: 1, Items: [this.state.path] }
+      }
+    };
+    cloudfront.createInvalidation(params, (err, data) => {
+      if (err) {
+        console.log(err, err.stack);
+      } else {
+        console.log(data);
+      }
+    });
   };
 
   public render() {
