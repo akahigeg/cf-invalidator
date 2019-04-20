@@ -6,12 +6,13 @@
 * Invalidation実行フォーム（一画面のみ）
 
 ## 入力項目
+* ディストリビューションID
 * ACCESSキー
 * SECRETキー
 * パス
 
 ## I AMの設定
-* CloudFrontに対してInvalidationを作成する権限を持つ
+CloudFrontに対してInvalidationを作成する権限を持つユーザーを作成。
 
 以下はビジュアルエディタで作成したポリシー。リソースは制限できないので「"*"」となっている
 
@@ -41,21 +42,3 @@ https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-invalidation.
    
     aws cloudfront create-invalidation --distribution-id S11A16G5KZMEQD \
       --paths /index.html /error.html
-
-### API
-https://docs.aws.amazon.com/ja_jp/cloudfront/latest/APIReference/Welcome.html
-
-    POST /2018-11-05/distribution/DistributionId/invalidation HTTP/1.1
-    <?xml version="1.0" encoding="UTF-8"?>
-    <InvalidationBatch xmlns="http://cloudfront.amazonaws.com/doc/2018-11-05/">
-       <CallerReference>string</CallerReference>
-       <Paths>
-          <Items>
-             <Path>string</Path>
-          </Items>
-          <Quantity>integer</Quantity>
-       </Paths>
-    </InvalidationBatch>
-
-* POSTで
-* RequestBodyはXML
