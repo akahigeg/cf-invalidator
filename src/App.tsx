@@ -53,6 +53,7 @@ class App extends React.Component<{}, AppState> {
         console.log(err, err.stack);
       } else {
         console.log(data);
+        // TODO: 結果の表示
       }
     });
   };

@@ -11,7 +11,24 @@
 * パス
 
 ## I AMの設定
-* 該当のCloudFrontのディストリビューションに対してInvalidationを作成する権限を持つ
+* CloudFrontに対してInvalidationを作成する権限を持つ
+
+以下はビジュアルエディタで作成したポリシー。リソースは制限できないので「"*"」となっている
+
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "VisualEditor0",
+                "Effect": "Allow",
+                "Action": [
+                    "cloudfront:GetInvalidation",
+                    "cloudfront:CreateInvalidation"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
 
 ## 他のCloudFrontのキャッシュ削除方法
 基本的に技術者は他の手段の方が簡単なのでこのアプリを使う必要は無い。
