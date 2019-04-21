@@ -69,28 +69,25 @@ class App extends React.Component<{}, AppState> {
               label="Distribution ID"
               type="text"
               onChange={this.handleInputChange}
-              placeholder="Distribution ID"
             />
             <Form.Input
               name="access_key"
               label="Access Key"
               type="text"
               onChange={this.handleInputChange}
-              placeholder="Access Key"
             />
             <Form.Input
               name="secret_key"
               label="Secret Key"
               type="text"
               onChange={this.handleInputChange}
-              placeholder="Secret Key"
             />
             <Form.Input
               name="path"
               label="Path"
               type="text"
               onChange={this.handleInputChange}
-              placeholder="Path"
+              placeholder="/*"
             />
             <div className="button-area">
               <Button type="submit" onClick={this.handleSubmit}>
