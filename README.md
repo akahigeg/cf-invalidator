@@ -1,7 +1,7 @@
 ## なにか
 CloudFrontのキャッシュ削除をフォームから行うウェブアプリ。
 
-![ScreenShot](doc/images/cloudfront-invalidator.png)
+<img src="doc/images/cloudfront-invalidator.png" alt="ScreenShot" width="370px" />
 
 ## なぜ作ったか
 コンテンツ制作者がサーバーにコンテンツをアップした際にCloudFrontのキャッシュを即時削除したいというニーズに応えるため。
