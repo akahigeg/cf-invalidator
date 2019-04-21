@@ -68,24 +68,28 @@ class App extends React.Component<{}, AppState> {
               name="distribution_id"
               label="Distribution ID"
               type="text"
+              value={this.state.distribution_id}
               onChange={this.handleInputChange}
             />
             <Form.Input
               name="access_key"
               label="Access Key"
               type="text"
+              value={this.state.access_key}
               onChange={this.handleInputChange}
             />
             <Form.Input
               name="secret_key"
               label="Secret Key"
               type="text"
+              value={this.state.secret_key}
               onChange={this.handleInputChange}
             />
             <Form.Input
               name="path"
               label="Path"
               type="text"
+              value={this.state.path}
               onChange={this.handleInputChange}
               placeholder="/*"
             />
