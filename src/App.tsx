@@ -4,7 +4,7 @@ import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import * as AWS from "aws-sdk";
 
-import { Form, Button, Container } from "semantic-ui-react";
+import { Form, Button, Container, Message } from "semantic-ui-react";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
@@ -13,6 +13,7 @@ interface AppState {
   access_key: string;
   secret_key: string;
   path: string;
+  submit_result: string;
 }
 
 class App extends React.Component<{}, AppState> {
@@ -22,7 +23,8 @@ class App extends React.Component<{}, AppState> {
       distribution_id: cookies.get("distribution_id") || "",
       access_key: cookies.get("access_key") || "",
       secret_key: cookies.get("secret_key") || "",
-      path: cookies.get("path") || ""
+      path: cookies.get("path") || "",
+      submit_result: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -51,9 +53,10 @@ class App extends React.Component<{}, AppState> {
     cloudfront.createInvalidation(params, (err, data) => {
       if (err) {
         console.log(err, err.stack);
+        this.setState({ submit_result: "fail" });
       } else {
         console.log(data);
-        // TODO: 結果の表示
+        this.setState({ submit_result: "success" });
       }
     });
   };
@@ -98,6 +101,12 @@ class App extends React.Component<{}, AppState> {
                 キャッシュを削除
               </Button>
             </div>
+            {this.state.submit_result === "success" && (
+              <Message header="キャッシュの削除をリクエストしました" content="削除の完了まで数分程度お待ちください。" />
+            )}
+            {this.state.submit_result === "fail" && (
+              <Message header="キャッシュの削除に失敗しました" content="ディストリビューションIDやアクセスキーなどに入力間違いがないかどうかご確認ください。" />
+            )}
           </Form>
         </Container>
         <SiteFooter />

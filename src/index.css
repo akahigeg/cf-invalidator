@@ -50,6 +50,10 @@ code {
   max-width: 365px;
 }
 
+.ui.message {
+  max-width: 365px;
+}
+
 .site-footer {
   margin-top: 40px;
   background-color: #666;
