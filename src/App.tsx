@@ -102,7 +102,7 @@ class App extends React.Component<{}, AppState> {
               </Button>
             </div>
             {this.state.submit_result === "success" && (
-              <Message header="キャッシュの削除をリクエストしました" content="削除の完了まで数分程度お待ちください。" />
+              <Message header="キャッシュの削除をリクエストしました" content="削除の完了まで数十秒から数分程度お待ちください。" />
             )}
             {this.state.submit_result === "fail" && (
               <Message header="キャッシュの削除に失敗しました" content="ディストリビューションIDやアクセスキーなどに入力間違いがないかどうかご確認ください。" />
