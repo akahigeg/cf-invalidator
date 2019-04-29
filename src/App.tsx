@@ -23,7 +23,7 @@ class App extends React.Component<{}, AppState> {
       distribution_id: cookies.get("distribution_id") || "",
       access_key: cookies.get("access_key") || "",
       secret_key: cookies.get("secret_key") || "",
-      path: cookies.get("path") || "",
+      path: cookies.get("path") || "/*",
       submit_result: ""
     };
 
@@ -94,7 +94,6 @@ class App extends React.Component<{}, AppState> {
               type="text"
               value={this.state.path}
               onChange={this.handleInputChange}
-              placeholder="/*"
             />
             <div className="button-area">
               <Button type="submit" onClick={this.handleSubmit}>
