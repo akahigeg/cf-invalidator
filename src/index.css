@@ -62,3 +62,8 @@ code {
   width: 100%;
   text-align: center;
 }
+
+.site-footer a,
+.site-footer a:visited {
+  color: #fff;
+}

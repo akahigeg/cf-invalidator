@@ -3,7 +3,7 @@ import * as React from "react";
 const SiteFooter: React.SFC<{}> = ({}) => {
   return (
     <div className="site-footer">
-      <div>(c)brassworks</div>
+      <div><a href="https://www.brassworks.jp/">&copy;brassworks</a></div>
     </div>
   )
 }
