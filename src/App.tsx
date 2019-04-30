@@ -69,28 +69,28 @@ class App extends React.Component<{}, AppState> {
           <Form className="cf-invalidator">
             <Form.Input
               name="distribution_id"
-              label="Distribution ID"
+              label="ディストリビューションID"
               type="text"
               value={this.state.distribution_id}
               onChange={this.handleInputChange}
             />
             <Form.Input
               name="access_key"
-              label="Access Key"
+              label="アクセスキー"
               type="text"
               value={this.state.access_key}
               onChange={this.handleInputChange}
             />
             <Form.Input
               name="secret_key"
-              label="Secret Key"
+              label="シークレットキー"
               type="text"
               value={this.state.secret_key}
               onChange={this.handleInputChange}
             />
             <Form.Input
               name="path"
-              label="Path"
+              label="パス"
               type="text"
               value={this.state.path}
               onChange={this.handleInputChange}
@@ -104,7 +104,7 @@ class App extends React.Component<{}, AppState> {
               <Message header="キャッシュの削除をリクエストしました" content="削除の完了まで数十秒から数分程度お待ちください。" />
             )}
             {this.state.submit_result === "fail" && (
-              <Message header="キャッシュの削除に失敗しました" content="ディストリビューションIDやアクセスキーなどに入力間違いがないかどうかご確認ください。" />
+              <Message negative header="キャッシュの削除に失敗しました" content="ディストリビューションIDやアクセスキー、シークレットキーの入力間違いがないかどうかご確認ください。" />
             )}
           </Form>
         </Container>
